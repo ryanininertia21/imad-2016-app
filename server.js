@@ -5,8 +5,60 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne = {
+  title : "Article one | Shrayan Banerjee",
+  heading : "Article one",
+  date : "Sep 5 , 2016",
+  content: `<p><font color="687584">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+
+The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+    </font></p>
+<p><font color="688484">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+
+The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+    </font></p>
+    
+    <p><font color="681184">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+
+The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+    </font></p>`
+};
+function createtemplate (data) 
+{
+    var title= data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
+var htmltemplate=`
+<!doctype html>
+<html>
+<body>
+<link href="/ui/style.css" rel="stylesheet" />
+
+<div class="container">
+    <div>
+        <a href="/">Home</a>
+    </div>
+    <hr/>
+    <h1>
+        This is my first article about deep mind 
+    </h1>
+    <div>
+    ${date}
+    </div>
+        <div>
+    ${content}
+</div>
+</body>
+</html>
+`;
+return htmltemplate;
+}
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  res.send(createtemplate(articleOne));
 });
 app.get('/article-one', function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
