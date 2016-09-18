@@ -5,27 +5,71 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-  title : "Article one | Shrayan Banerjee",
-  heading : "Article one",
-  date : "Sep 5 , 2016",
-  content: `<p><font color="687584">
+var articles = {
+        'article-one' : {
+        title : "Article one | Shrayan Banerjee",
+        heading : "Article one",
+        date : "Sep 5 , 2016",
+        content: `<p><font color="687584">
         <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
-
-The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
-    </font></p>
-<p><font color="688484">
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>
+        <p><font color="688484">
         <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
-
-The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
-    </font></p>
-    
-    <p><font color="681184">
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>
+        
+        <p><font color="681184">
         <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
-
-The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
-    </font></p>`
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>`
+},
+        'article-two' : {
+            title : "Article two | Shrayan Banerjee",
+        heading : "Article two",
+        date : "Sep 10 , 2016",
+        content: `<p><font color="687584">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>
+        <p><font color="688484">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>
+        
+        <p><font color="681184">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>`},
+        'article-three' : {
+            title : "Article three | Shrayan Banerjee",
+        heading : "Article three",
+        date : "Sep 15 , 2016",
+        content: `<p><font color="687584">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>
+        <p><font color="688484">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>
+        
+        <p><font color="681184">
+        <b>DeepMind</b> Technologies Limited is a British artificial intelligence company founded in September 2010. It was acquired by Google in 2014. The company has created a neural network that learns how to play video games in a fashion similar to that of humans, as well as a Neural Turing Machine, or a neural network that may be able to access an external memory like a conventional Turing machine, resulting in a computer that mimics the short-term memory of the human brain.
+        
+        The company made headlines in 2016 after its AlphaGo program beat a human professional<b> Go </b> player for the first time.
+        </font></p>`
+        },
 };
+        
 function createtemplate (data) 
 {
     var title= data.title;
@@ -57,10 +101,16 @@ var htmltemplate=`
 `;
 return htmltemplate;
 }
-app.get('/', function (req, res) {
-  res.send(createtemplate(articleOne));
+app.get('/',function(req,res){
+res.sendFile(path.join(__dirname,'ui','index.html'));
 });
-app.get('/article-one', function(req,res){
+
+
+app.get('/:articleName', function (req, res) {
+  var articleName= req.params.articleName;
+  res.send(createtemplate(articles[articleName]));
+});
+app.get('/:articleName', function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
 });
 app.get('/article-two', function(req,res){
