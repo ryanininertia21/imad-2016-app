@@ -5,7 +5,7 @@ element.innerHTML="New value";
 
 
 //move the image
-var img=document.getElementById("madi");
+var img=document.getElementById("madi.png");
 img.onclick = function()
 {
   img.style.leftmargin = '100px';  
