@@ -8,5 +8,5 @@ element.innerHTML="New value";
 var img=document.getElementById("madi.png");
 madi.onclick = function()
 {
-  img.style.leftmargin = '100px';  
+  madi.style.leftmargin = '100px';  
 };
