@@ -6,7 +6,7 @@ element.innerHTML="New value";
 
 //move the image
 var img =document.getElementById("/ui/madi.png");
-img.onclick = function()
+img.onclick =function()
 {
   img.style.marginleft = '100px';  
 };
