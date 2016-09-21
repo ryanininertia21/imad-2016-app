@@ -6,7 +6,7 @@ element.innerHTML="New value";
 
 //move the image
 var img=document.getElementById("madi.png");
-madi.onclick = function()
+img.onclick = function()
 {
   madi.style.leftmargin = '100px';  
 };
