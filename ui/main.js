@@ -5,8 +5,8 @@ element.innerHTML="New value";
 
 
 //move the image
-var img=document.getElementById("madi.png");
+var img=document.getElementById("madi");
 img.onclick = function()
 {
-  madi.style.leftmargin = '100px';  
+  img.style.leftmargin = '100px';  
 };
