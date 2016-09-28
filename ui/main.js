@@ -1,7 +1,7 @@
 console.log('Loaded!');
 // change the text of the maintext div
 var element=document.getElementById("maintext");
-element.innerHTML="Personal Information";
+element.innerHTML="Profile Page";
 
 
 //move the image
