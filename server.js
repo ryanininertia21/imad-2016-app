@@ -113,6 +113,10 @@ app.get('/counter',function(req,res){
   res.send(counter.toString());
 });
 
+app.get('test-db' , function(req,res){
+   
+});
+
 
 app.get('/:articleName', function (req, res) {
   var articleName= req.params.articleName;
