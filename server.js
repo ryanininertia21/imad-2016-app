@@ -76,7 +76,7 @@ var config = {
     database :'ryanininertia21',
     host: 'db.imad.hasura-app.io',
     port:'5432',
-    password: process.env.DB_PASSWORD,
+    password: db-ryanininertia21-44268,
 };
         
 function createtemplate (data) 
