@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+    margin-top:60px;
+    background-color:#ddddd;
+}
+
+.center {
+    text-align: center;
+}
+
+.text-big {
+    font-size: 300%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.img-medium {
+    height: 200px;
+}
+.container {
+        max-width :800px;
+         margin :0 auto;
+         color :grey;
+        padding-left :60px;
+        padding-right :60px;
+        font-family :"sans-serif";
+     }
